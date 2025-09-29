@@ -1,0 +1,29 @@
+# Travel Policy Pricing Rules
+
+discounts:
+  multi_traveller:
+    "2-5": 0.05    # 5% discount for 2-5 travellers
+    "6-10": 0.10   # 10% discount for 6-10 travellers
+    "11+": 0.15    # 15% discount for 11+ travellers
+  
+  long_term:
+    "30-60": 0.05  # 5% discount for 30-60 days
+    "61-90": 0.10  # 10% discount for 61-90 days
+    "91+": 0.15    # 15% discount for 91+ days
+
+surcharges:
+  high_risk_countries: 0.25  # 25% surcharge for high-risk destinations
+  last_minute: 0.20          # 20% surcharge for bookings within 7 days
+  elderly: 0.15              # 15% surcharge for travellers over 70
+
+limits:
+  minimum_premium: 25
+  maximum_premium: 5000
+  max_trip_duration: 365
+  max_travellers: 50
+
+coverage_limits:
+  medical_expenses: 1000000
+  trip_cancellation: 10000
+  baggage_loss: 2500
+  personal_liability: 2000000

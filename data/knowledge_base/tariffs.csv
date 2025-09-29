@@ -1,0 +1,10 @@
+travel_direction,geographic_scope,class_of_cover,base_rate,daily_rate
+outbound,worldwide,economy,50,5
+outbound,worldwide,business,75,8
+outbound,worldwide,first,100,12
+outbound,worldwide_excluding_us_canada,economy,35,4
+outbound,worldwide_excluding_us_canada,business,55,6
+outbound,worldwide_excluding_us_canada,first,75,9
+inbound,domestic,economy,25,3
+inbound,domestic,business,40,5
+inbound,domestic,first,60,8

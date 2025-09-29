@@ -1,0 +1,176 @@
+{
+  "name": "Travel Policy Automation Workflow",
+  "description": "Automated travel policy issuance from email requests",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "options": {
+          "allowUnauthorizedCerts": false,
+          "ignoreSSLIssues": false
+        }
+      },
+      "name": "Email Trigger - Monitor Inbox",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [
+        250,
+        300
+      ],
+      "credentials": {
+        "imap": {
+          "id": "travel_policy_email",
+          "name": "Travel Policy Email Account (hello@limitless-tech.ai)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "python3 /workspace/main.py --process-email",
+        "additionalFields": {
+          "workingDirectory": "/workspace"
+        }
+      },
+      "name": "Process Travel Policy Request",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        450,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "http://localhost:5000/api/issue_policy",
+        "sendBody": true,
+        "bodyContentType": "json",
+        "jsonBody": "={{ $json.policy_data }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "name": "Issue Policy in Backend System",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        650,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@limitless-tech.ai",
+        "toEmail": "={{ $json.recipient_email }}",
+        "subject": "Travel Policy Issued - {{ $json.policy_reference }}",
+        "emailFormat": "html",
+        "message": "<h2>Travel Policy Issued Successfully</h2><p>Your travel policy has been processed and issued.</p><p><strong>Policy Reference:</strong> {{ $json.policy_reference }}</p><p>Please find your policy document attached.</p>",
+        "attachments": "={{ $json.policy_pdf }}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "name": "Send Policy Confirmation Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        850,
+        300
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "travel_policy_smtp",
+          "name": "Travel Policy SMTP (hello@limitless-tech.ai)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@limitless-tech.ai",
+        "toEmail": "={{ $json.recipient_email }}",
+        "subject": "Travel Policy Request - Missing Information",
+        "emailFormat": "html",
+        "message": "<h2>Additional Information Required</h2><p>We received your travel policy request but need the following information:</p><ul>{{ $json.missing_fields_html }}</ul><p>Please reply with the missing information to process your request.</p>",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "name": "Request Missing Information",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        650,
+        450
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "travel_policy_smtp",
+          "name": "Travel Policy SMTP (hello@limitless-tech.ai)"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Email Trigger - Monitor Inbox": {
+      "main": [
+        [
+          {
+            "node": "Process Travel Policy Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Travel Policy Request": {
+      "main": [
+        [
+          {
+            "node": "Issue Policy in Backend System",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Request Missing Information",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Issue Policy in Backend System": {
+      "main": [
+        [
+          {
+            "node": "Send Policy Confirmation Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-09-29T18:32:00.000Z",
+      "updatedAt": "2025-09-29T18:32:00.000Z",
+      "id": "travel-policy",
+      "name": "travel-policy"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-29T18:32:00.000Z",
+  "versionId": "1"
+}
