@@ -296,7 +296,3 @@ Per workspace guide, configure:
 
 MIT
 
-## Contact
-
-- Devin Session: https://app.devin.ai/sessions/ea04391073bf4a4ebe0393b7544dfdef
-- Requested by: @farahfarchoukh-ai
