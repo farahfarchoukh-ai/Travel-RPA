@@ -1,0 +1,11 @@
+{
+  "message_id": "msg-inbound-005",
+  "thread_id": "thread-inbound-005",
+  "from": "desk@example.com",
+  "subject": "Inbound Insurance – USD 100,000 Coverage",
+  "body": "Dear Insurance Desk, Please insure one inbound traveller for nine months (2026-03-01 to 2026-12-01) with coverage limit USD 100,000. Traveller info attached.",
+  "received_at": "2025-10-01T14:00:00Z",
+  "ocr_results": [
+    "P<LBNTAYLOR<<JAMES<<<<<<<<<<<<<<<<<<<<<<<<<\nIJ34567890LBN8701015M3412319<<<<<<<<<<<<<<04"
+  ]
+}

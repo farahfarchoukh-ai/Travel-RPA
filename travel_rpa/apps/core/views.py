@@ -77,7 +77,11 @@ def ingest_email(request):
                 mrz_data=parsed
             )
     
-    required = ['direction', 'scope', 'plan', 'days', 'start_date']
+    if extracted.get('direction') == 'INBOUND':
+        required = ['direction', 'plan', 'days', 'start_date']
+    else:
+        required = ['direction', 'scope', 'plan', 'days', 'start_date']
+    
     missing = []
     for field in required:
         val = extracted.get(field)
@@ -217,16 +221,18 @@ def extract_policy_data(body: str, subject: str) -> dict:
     intent_ok = any(re.search(pattern, body.lower()) for pattern in intent_patterns)
     
     direction = None
+    scope = None
     if re.search(r'\binbound\b', body.lower()):
         direction = 'INBOUND'
+        scope = 'INBOUND'
     elif re.search(r'\boutbound\b', body.lower()):
         direction = 'OUTBOUND'
     
-    scope = None
-    if re.search(r'(worldwide\s+excluding|world\s+except|excl\.?\s*(us|usa|canada)|excluding\s*(us|usa|canada)|excluding\s+country\s+of\s+residence)', body.lower()):
-        scope = 'WW_EXCL_US_CA'
-    elif re.search(r'worldwide', body.lower()):
-        scope = 'WORLDWIDE'
+    if scope != 'INBOUND':
+        if re.search(r'(worldwide\s+excluding|world\s+except|excl\.?\s*(us|usa|canada)|excluding\s*(us|usa|canada)|excluding\s+country\s+of\s+residence)', body.lower()):
+            scope = 'WW_EXCL_US_CA'
+        elif re.search(r'worldwide', body.lower()):
+            scope = 'WORLDWIDE'
     
     if scope is None and re.search(r'(europe|greece)', body.lower()):
         scope = 'WW_EXCL_US_CA'

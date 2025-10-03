@@ -1,0 +1,11 @@
+{
+  "message_id": "msg-inbound-004",
+  "thread_id": "thread-inbound-004",
+  "from": "team@example.com",
+  "subject": "Long-Stay Inbound Cover – Gold Plus",
+  "body": "Hello, Need 6-month inbound policy (2026-02-15 to 2026-08-15) for one traveller, Gold Plus. Name and passport enclosed in attachment.",
+  "received_at": "2025-10-01T13:00:00Z",
+  "ocr_results": [
+    "P<LBNWILSON<<SARAH<<<<<<<<<<<<<<<<<<<<<<<<<\nGH23456780LBN9201015F3312319<<<<<<<<<<<<<<02"
+  ]
+}

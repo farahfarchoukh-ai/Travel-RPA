@@ -1,0 +1,11 @@
+{
+  "message_id": "msg-inbound-001",
+  "thread_id": "thread-inbound-001",
+  "from": "client@example.com",
+  "subject": "Travel Insurance for 10-Day Inbound Trip",
+  "body": "Hello, My client is coming to Beirut tomorrow. Kindly issue an inbound travel policy for a single traveller for 10 days, Silver cover. Travel dates: 2025-11-01 to 2025-11-10. Please find passport and name in the attachment. Thanks.",
+  "received_at": "2025-10-01T10:00:00Z",
+  "ocr_results": [
+    "P<LBNSMITH<<JOHN<<<<<<<<<<<<<<<<<<<<<<<<<<\nAB12345670LBN8501015M3012319<<<<<<<<<<<<<<04"
+  ]
+}

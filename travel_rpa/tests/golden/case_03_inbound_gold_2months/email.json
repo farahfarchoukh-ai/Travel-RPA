@@ -1,0 +1,11 @@
+{
+  "message_id": "msg-inbound-003",
+  "thread_id": "thread-inbound-003",
+  "from": "user@example.com",
+  "subject": "Insurance Request – Inbound Gold (2 months)",
+  "body": "Hi, Please arrange inbound coverage for one person under Gold for 2 months (2026-01-01 to 2026-03-01). Refer to the attachment for personal details. Thanks.",
+  "received_at": "2025-10-01T12:00:00Z",
+  "ocr_results": [
+    "P<LBNBROWN<<DAVID<<<<<<<<<<<<<<<<<<<<<<<<<<\nEF54321090LBN8801015M3212319<<<<<<<<<<<<<<06"
+  ]
+}

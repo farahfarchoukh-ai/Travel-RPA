@@ -1,0 +1,11 @@
+{
+  "message_id": "msg-inbound-002",
+  "thread_id": "thread-inbound-002",
+  "from": "team@example.com",
+  "subject": "Single Traveller – Inbound Platinum Cover",
+  "body": "Dear Team, Requesting inbound policy for one traveller, Platinum plan, from 2025-11-12 to 2025-12-02 (approx. three weeks). Traveller's name and passport are attached. Regards.",
+  "received_at": "2025-10-01T11:00:00Z",
+  "ocr_results": [
+    "P<LBNJOHNSON<<MARY<<<<<<<<<<<<<<<<<<<<<<<<<\nCD98765430LBN9001015F3112319<<<<<<<<<<<<<<08"
+  ]
+}

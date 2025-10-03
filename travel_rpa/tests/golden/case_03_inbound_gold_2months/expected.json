@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "INBOUND",
+    "scope": "INBOUND",
+    "plan": "Gold",
+    "days": 60,
+    "start_date": "2026-01-01",
+    "end_date": "2026-03-01",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "DAVID BROWN",
+      "passport": "EF5432109",
+      "age": 37,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "82.00",
+    "subtotal": "82.00",
+    "group_discount": "0.00",
+    "net": "82.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "82.00",
+    "currency": "USD"
+  }
+}

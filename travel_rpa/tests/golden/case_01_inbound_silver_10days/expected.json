@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "INBOUND",
+    "scope": "INBOUND",
+    "plan": "Silver",
+    "days": 10,
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-10",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "JOHN SMITH",
+      "passport": "AB1234567",
+      "age": 40,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "45.00",
+    "subtotal": "45.00",
+    "group_discount": "0.00",
+    "net": "45.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "45.00",
+    "currency": "USD"
+  }
+}
