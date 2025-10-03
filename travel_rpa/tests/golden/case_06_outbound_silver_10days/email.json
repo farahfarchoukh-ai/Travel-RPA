@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-006",
+  "thread_id": "test-thread-006",
+  "from": "customer@example.com",
+  "subject": "Travel Insurance Request - Silver Plan",
+  "body": "Hello, I need travel insurance for an outbound trip. Details:\n- Scope: Worldwide\n- Plan: Silver ($50,000 coverage)\n- Duration: 10 days\n- Travel dates: 2025-11-01 to 2025-11-10\n- Travellers: 1\n- Name: John Doe\n- Passport: AB1234567\n\nPlease process this request.\n\nThank you",
+  "received_at": "2025-10-03T10:00:00Z",
+  "ocr_results": [
+    "P<USADOE<<JOHN<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nAB1234567<USA8501015M2501011<<<<<<<<<<<<<<06"
+  ]
+}

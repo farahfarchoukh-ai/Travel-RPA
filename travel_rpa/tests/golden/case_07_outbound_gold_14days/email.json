@@ -1,0 +1,12 @@
+{
+  "message_id": "test-msg-007",
+  "thread_id": "test-thread-007",
+  "from": "customer2@example.com",
+  "subject": "Travel Policy - Gold Coverage",
+  "body": "I need travel insurance:\n- Outbound trip\n- Scope: Worldwide Excluding USA and Canada\n- Plan: Gold ($100,000)\n- Duration: 14 days\n- Dates: 2025-12-01 to 2025-12-14\n- 2 travellers\n- Traveller 1: Jane Smith, Passport: CD9876543\n- Traveller 2: Tom Smith, Passport: EF5432109\n\nPlease confirm.",
+  "received_at": "2025-10-03T11:00:00Z",
+  "ocr_results": [
+    "P<GBRSMITH<<JANE<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nCD9876543<GBR8001015F2501011<<<<<<<<<<<<<<06",
+    "P<GBRSMITH<<TOM<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\nEF5432109<GBR8201015M2501011<<<<<<<<<<<<<<06"
+  ]
+}
