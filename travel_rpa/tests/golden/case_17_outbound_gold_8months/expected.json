@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Gold",
+    "days": 245,
+    "start_date": "2026-04-01",
+    "end_date": "2026-12-01",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "MINJUN KIM",
+      "passport": "UV0123456",
+      "age": 30,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "200.00",
+    "subtotal": "200.00",
+    "group_discount": "0.00",
+    "net": "200.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "200.00",
+    "currency": "USD"
+  }
+}

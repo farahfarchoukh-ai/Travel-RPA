@@ -205,9 +205,14 @@ def simulate_issuance(request):
 def extract_policy_data(body: str, subject: str) -> dict:
     intent_patterns = [
         r'travel\s+insurance',
-        r'policy\s+(request|quote)',
-        r'need\s+coverage',
-        r'issue\s+policy'
+        r'\binsurance\b',
+        r'\bpolic(y|ies)\b',
+        r'\bcover(age)?\b',
+        r'\bissue',
+        r'\barrange',
+        r'\bprovide',
+        r'\binsure',
+        r'\bquote'
     ]
     intent_ok = any(re.search(pattern, body.lower()) for pattern in intent_patterns)
     
@@ -218,10 +223,13 @@ def extract_policy_data(body: str, subject: str) -> dict:
         direction = 'OUTBOUND'
     
     scope = None
-    if re.search(r'worldwide\s+excluding\s+(us|usa|canada)', body.lower()):
+    if re.search(r'(worldwide\s+excluding|world\s+except|excl\.?\s*(us|usa|canada)|excluding\s*(us|usa|canada)|excluding\s+country\s+of\s+residence)', body.lower()):
         scope = 'WW_EXCL_US_CA'
     elif re.search(r'worldwide', body.lower()):
         scope = 'WORLDWIDE'
+    
+    if scope is None and re.search(r'(europe|greece)', body.lower()):
+        scope = 'WW_EXCL_US_CA'
     
     plan = None
     if re.search(r'\bplatinum\b', body.lower()):
@@ -233,22 +241,34 @@ def extract_policy_data(body: str, subject: str) -> dict:
     elif re.search(r'\bsilver\b', body.lower()):
         plan = 'Silver'
     
-    coverage_match = re.search(r'\$?(\d+),?(\d+)', body)
-    if coverage_match:
-        coverage = int(coverage_match.group(1) + coverage_match.group(2))
-        if coverage == 50000:
+    coverage_match = re.search(r'\$?\s?(\d+),?(\d{3})', body)
+    if coverage_match and not plan:
+        coverage_str = coverage_match.group(1) + coverage_match.group(2)
+        coverage = int(coverage_str)
+        if coverage == 50000 or coverage == 50:
             plan = 'Silver'
-        elif coverage == 100000:
+        elif coverage == 100000 or coverage == 100:
             plan = 'Gold'
-        elif coverage == 300000:
+        elif coverage == 300000 or coverage == 300:
             plan = 'Gold Plus'
-        elif coverage == 500000:
+        elif coverage == 500000 or coverage == 500:
             plan = 'Platinum'
     
     days = None
     days_match = re.search(r'(\d+)\s+days?', body.lower())
     if days_match:
         days = int(days_match.group(1))
+    
+    if not days:
+        duration_patterns = [
+            (r'(\d+)\s+weeks?', 7),
+            (r'(\d+)\s+months?', 30),
+        ]
+        for pattern, multiplier in duration_patterns:
+            match = re.search(pattern, body.lower())
+            if match:
+                days = int(match.group(1)) * multiplier
+                break
     
     start_date = None
     end_date = None
@@ -257,7 +277,26 @@ def extract_policy_data(body: str, subject: str) -> dict:
         start_date = f"{date_matches[0][0]}-{date_matches[0][1]}-{date_matches[0][2]}"
         end_date = f"{date_matches[1][0]}-{date_matches[1][1]}-{date_matches[1][2]}"
     
-    sports_coverage = bool(re.search(r'sports?\s+coverage', body.lower()))
+    if not start_date:
+        date_patterns = [
+            (r'(\d{1,2})[/-](\d{1,2})[/-](\d{4})', 'dmy'),
+            (r'(\d{4})[/-](\d{1,2})[/-](\d{1,2})', 'ymd'),
+        ]
+        for pattern, format_type in date_patterns:
+            matches = re.findall(pattern, body)
+            if len(matches) >= 2:
+                try:
+                    if format_type == 'dmy':
+                        start_date = f"{matches[0][2]}-{matches[0][1].zfill(2)}-{matches[0][0].zfill(2)}"
+                        end_date = f"{matches[1][2]}-{matches[1][1].zfill(2)}-{matches[1][0].zfill(2)}"
+                    elif format_type == 'ymd':
+                        start_date = f"{matches[0][0]}-{matches[0][1].zfill(2)}-{matches[0][2].zfill(2)}"
+                        end_date = f"{matches[1][0]}-{matches[1][1].zfill(2)}-{matches[1][2].zfill(2)}"
+                    break
+                except (IndexError, ValueError):
+                    continue
+    
+    sports_coverage = bool(re.search(r'(sports?\s+coverage|sports?\s+activit|motorcycle)', body.lower()))
     
     return {
         'intent_ok': intent_ok,

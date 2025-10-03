@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-025",
+  "thread_id": "test-thread-025",
+  "from": "customer@example.com",
+  "subject": "travel policy",
+  "body": "Dear Team,\nPlease issue an outbound travel policy for Mrs. Aline Fersane as per the below conditions: \n\nPlan requested: $50,000 Silver\nValidity: from 2025-08-21 to 2025-08-26 (6 days)\nGeographical Zone: Greece (Worldwide excluding USA & Canada)\nDestination: Greece\nAdditional cover: motorcycle coverage \nAddress: -2 FLOOR, NIDAL IMAD BLDG, NEXT TO AL KHALAS CHURCH, AIN EL RIHANE./03828980 \n\nBest Regards.",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<LBNFERSANE<<ALINE<<<<<<<<<<<<<<<<<<<<<<<<<<\nUV3456789<LBN8501015F2508015<<<<<<<<<<<<<<06"
+  ]
+}

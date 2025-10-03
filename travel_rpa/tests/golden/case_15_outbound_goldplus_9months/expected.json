@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Gold Plus",
+    "days": 274,
+    "start_date": "2026-02-10",
+    "end_date": "2026-11-10",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "SARAH MILLER",
+      "passport": "QR8901234",
+      "age": 32,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "300.00",
+    "subtotal": "300.00",
+    "group_discount": "0.00",
+    "net": "300.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "300.00",
+    "currency": "USD"
+  }
+}

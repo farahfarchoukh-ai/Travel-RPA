@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-013",
+  "thread_id": "test-thread-013",
+  "from": "customer@example.com",
+  "subject": "Outbound Platinum Cover – 4 Months",
+  "body": "Hi,\nArrange Platinum cover outbound (Worldwide excluding US/Canada) for one traveller, from 2026-01-15 to 2026-05-15 (121 days, 4 months).\nName and passport inside attachment.\n\nThank you",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<ITADAVIS<<EMILY<<<<<<<<<<<<<<<<<<<<<<<<<<\nMN6789012<ITA9101015F2601015<<<<<<<<<<<<<<06"
+  ]
+}

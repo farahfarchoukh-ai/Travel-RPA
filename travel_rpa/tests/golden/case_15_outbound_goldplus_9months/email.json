@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-015",
+  "thread_id": "test-thread-015",
+  "from": "customer@example.com",
+  "subject": "Outbound Gold Plus – 9 Months Coverage",
+  "body": "Dear Insurance Team,\nKindly provide Gold Plus outbound insurance (Worldwide excluding US/Canada) for one traveller, from 2026-02-10 to 2026-11-10 (274 days, 9 months).\nSee attachment for passport/name.\n\nThanks",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<AUSMILLER<<SARAH<<<<<<<<<<<<<<<<<<<<<<<<<\nQR8901234<AUS9301015F2602015<<<<<<<<<<<<<<06"
+  ]
+}

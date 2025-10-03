@@ -3,28 +3,28 @@
   "extracted": {
     "direction": "OUTBOUND",
     "scope": "WORLDWIDE",
-    "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "plan": "Gold Plus",
+    "days": 60,
+    "start_date": "2026-01-10",
+    "end_date": "2026-03-10",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
-      "age": 40,
+      "name": "ALICE JOHNSON",
+      "passport": "CD1234567",
+      "age": 37,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "110.00",
+    "subtotal": "110.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "110.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "110.00",
     "currency": "USD"
   }
 }

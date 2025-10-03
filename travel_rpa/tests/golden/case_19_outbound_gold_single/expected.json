@@ -3,28 +3,28 @@
   "extracted": {
     "direction": "OUTBOUND",
     "scope": "WORLDWIDE",
-    "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "plan": "Gold",
+    "days": 91,
+    "start_date": "2025-12-01",
+    "end_date": "2026-03-01",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
-      "age": 40,
+      "name": "LARS VANDENBERG",
+      "passport": "CD4567890",
+      "age": 29,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "95.00",
+    "subtotal": "95.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "95.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "95.00",
     "currency": "USD"
   }
 }

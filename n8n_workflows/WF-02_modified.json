@@ -1,0 +1,262 @@
+{
+  "name": "WF-02 Classify + Validate (Modified for Django Integration)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ingest/email-v7",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-864, 48],
+      "id": "20a19236-810c-4b6b-a25e-a022f2563d95",
+      "name": "Webhook",
+      "webhookId": "7ccca938-b7d8-4dc0-9894-df0154b6ef21"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://DJANGO_API_URL_HERE/api/v1/ingest",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Webhook-Secret",
+              "value": "={{ $env.N8N_WEBHOOK_SECRET }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message_id",
+              "value": "={{ $json.id || $json.message_id }}"
+            },
+            {
+              "name": "thread_id",
+              "value": "={{ $json.thread_id || $json.threadId || $json.id }}"
+            },
+            {
+              "name": "from",
+              "value": "={{ $json.from }}"
+            },
+            {
+              "name": "subject",
+              "value": "={{ $json.subject }}"
+            },
+            {
+              "name": "body",
+              "value": "={{ $json.body || $json.snippet || '' }}"
+            },
+            {
+              "name": "received_at",
+              "value": "={{ $json.received_at || $json.internalDate || new Date().toISOString() }}"
+            },
+            {
+              "name": "ocr_results",
+              "value": "={{ $json.ocr_results || [] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-672, 48],
+      "id": "django-api-ingest",
+      "name": "Django API - Ingest"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "46651a6b-9a48-4065-bf27-34a7e7a845c3",
+                    "leftValue": "={{ $json[\"route\"] }}",
+                    "rightValue": "missing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Missing"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4c7ec602-4d45-4cb4-95fe-4660ba50d243",
+                    "leftValue": "={{ $json[\"route\"] }}",
+                    "rightValue": "success",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Success"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ignore-condition",
+                    "leftValue": "={{ $json[\"route\"] }}",
+                    "rightValue": "ignore",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ignore"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [-480, 48],
+      "id": "route-switch",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ok\": true, \"route\": \"success\", \"case_id\": \"{{$json.case_id}}\" }\n",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [-288, -64],
+      "id": "respond-success",
+      "name": "RW-Success"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ok\": true, \"route\": \"missing\", \"case_id\": \"{{$json.case_id}}\", \"missing\": {{JSON.stringify($json.missing)}} }\n",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [-288, 48],
+      "id": "respond-missing",
+      "name": "RW-Missing"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ok\": true, \"route\": \"ignore\" }\n",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [-288, 160],
+      "id": "respond-ignore",
+      "name": "RW-Ignore"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Django API - Ingest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Django API - Ingest": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "RW-Missing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RW-Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RW-Ignore",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "tags": []
+}

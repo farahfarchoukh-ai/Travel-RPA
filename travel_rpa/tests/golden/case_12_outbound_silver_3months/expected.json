@@ -2,29 +2,29 @@
   "route": "success",
   "extracted": {
     "direction": "OUTBOUND",
-    "scope": "WORLDWIDE",
+    "scope": "WW_EXCL_US_CA",
     "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "days": 91,
+    "start_date": "2025-12-01",
+    "end_date": "2026-03-01",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
-      "age": 40,
+      "name": "DAVID BROWN",
+      "passport": "KL5678901",
+      "age": 35,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "55.00",
+    "subtotal": "55.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "55.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "55.00",
     "currency": "USD"
   }
 }

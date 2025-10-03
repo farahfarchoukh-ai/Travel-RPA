@@ -3,28 +3,28 @@
   "extracted": {
     "direction": "OUTBOUND",
     "scope": "WORLDWIDE",
-    "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "plan": "Platinum",
+    "days": 182,
+    "start_date": "2026-02-01",
+    "end_date": "2026-08-01",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
+      "name": "ROBERT WILSON",
+      "passport": "EF2345678",
       "age": 40,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "256.00",
+    "subtotal": "256.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "256.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "256.00",
     "currency": "USD"
   }
 }

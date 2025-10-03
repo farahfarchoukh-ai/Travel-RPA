@@ -4,33 +4,33 @@
     "direction": "OUTBOUND",
     "scope": "WW_EXCL_US_CA",
     "plan": "Gold",
-    "days": 14,
-    "start_date": "2025-12-01",
-    "end_date": "2025-12-14",
+    "days": 31,
+    "start_date": "2025-06-05",
+    "end_date": "2025-07-05",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JANE SMITH",
-      "passport": "CD9876543",
-      "age": 45,
+      "name": "DORY NJAIM",
+      "passport": "KL8901234",
+      "age": 55,
       "is_senior": false
     },
     {
-      "name": "TOM SMITH",
-      "passport": "EF5432109",
-      "age": 43,
+      "name": "CYNTHIA BARDAWIL",
+      "passport": "MN9012345",
+      "age": 50,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "40.00",
-    "subtotal": "80.00",
+    "base_per_traveller": "38.00",
+    "subtotal": "76.00",
     "group_discount": "0.00",
-    "net": "80.00",
+    "net": "76.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "80.00",
+    "total": "76.00",
     "currency": "USD"
   }
 }

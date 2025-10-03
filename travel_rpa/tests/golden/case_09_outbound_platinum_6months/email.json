@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-009",
+  "thread_id": "test-thread-009",
+  "from": "customer@example.com",
+  "subject": "6-Month Worldwide Outbound – Platinum",
+  "body": "Dear Support,\nNeed Platinum worldwide outbound insurance for one traveller from 2026-02-01 to 2026-08-01 (6 months, 182 days).\nTraveller details attached.\n\nRegards",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<GBRWILSON<<ROBERT<<<<<<<<<<<<<<<<<<<<<<<<<<\nEF2345678<GBR8501015M2601015<<<<<<<<<<<<<<06"
+  ]
+}

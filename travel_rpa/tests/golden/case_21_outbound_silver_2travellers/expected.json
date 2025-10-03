@@ -1,0 +1,36 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Silver",
+    "days": 31,
+    "start_date": "2025-07-25",
+    "end_date": "2025-08-24",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "PERLYN DAAO",
+      "passport": "GH6789012",
+      "age": 27,
+      "is_senior": false
+    },
+    {
+      "name": "RONALYN CRISTOBAL",
+      "passport": "IJ7890123",
+      "age": 26,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "35.00",
+    "subtotal": "70.00",
+    "group_discount": "0.00",
+    "net": "70.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "70.00",
+    "currency": "USD"
+  }
+}

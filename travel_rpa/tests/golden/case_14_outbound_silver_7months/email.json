@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-014",
+  "thread_id": "test-thread-014",
+  "from": "customer@example.com",
+  "subject": "Outbound Policy – USD 50,000 Coverage",
+  "body": "Hello,\nPlease issue outbound worldwide excl. US/Canada insurance for one traveller with USD 50,000 limit, from 2026-02-01 to 2026-09-01 (213 days, 7 months).\nTraveller details attached.\n\nRegards",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<ESPLOPEZ<<JUAN<<<<<<<<<<<<<<<<<<<<<<<<<<<\nOP7890123<ESP9201015M2602015<<<<<<<<<<<<<<06"
+  ]
+}

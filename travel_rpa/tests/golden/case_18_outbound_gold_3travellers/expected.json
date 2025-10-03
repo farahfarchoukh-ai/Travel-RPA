@@ -1,0 +1,42 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WORLDWIDE",
+    "plan": "Gold",
+    "days": 91,
+    "start_date": "2025-12-01",
+    "end_date": "2026-03-01",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "ERIK ANDERSON",
+      "passport": "WX1234567",
+      "age": 45,
+      "is_senior": false
+    },
+    {
+      "name": "ANNA ANDERSON",
+      "passport": "YZ2345678",
+      "age": 43,
+      "is_senior": false
+    },
+    {
+      "name": "LIAM ANDERSON",
+      "passport": "AB3456789",
+      "age": 15,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "95.00",
+    "subtotal": "285.00",
+    "group_discount": "0.00",
+    "net": "285.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "285.00",
+    "currency": "USD"
+  }
+}

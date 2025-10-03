@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Platinum",
+    "days": 121,
+    "start_date": "2026-01-15",
+    "end_date": "2026-05-15",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "EMILY DAVIS",
+      "passport": "MN6789012",
+      "age": 34,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "210.00",
+    "subtotal": "210.00",
+    "group_discount": "0.00",
+    "net": "210.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "210.00",
+    "currency": "USD"
+  }
+}
