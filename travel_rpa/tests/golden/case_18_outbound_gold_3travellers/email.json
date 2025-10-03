@@ -1,0 +1,13 @@
+{
+  "message_id": "test-msg-018",
+  "thread_id": "test-thread-018",
+  "from": "customer@example.com",
+  "subject": "Outbound Worldwide – USD 100,000 (3-Month Family)",
+  "body": "Hello,\nPlease cover three travellers together on outbound worldwide insurance with USD 100,000 coverage, from 2025-12-01 to 2026-03-01 (91 days, 3 months).\nAll names and passport numbers are provided in the attachment.\n\nThank you",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<SWEANDERSON<<ERIK<<<<<<<<<<<<<<<<<<<<<<<<\nWX1234567<SWE8001015M2512015<<<<<<<<<<<<<<06",
+    "P<SWEANDERSON<<ANNA<<<<<<<<<<<<<<<<<<<<<<<<\nYZ2345678<SWE8201015F2512015<<<<<<<<<<<<<<06",
+    "P<SWEANDERSON<<LIAM<<<<<<<<<<<<<<<<<<<<<<<<\nAB3456789<SWE1001015M2512015<<<<<<<<<<<<<<06"
+  ]
+}

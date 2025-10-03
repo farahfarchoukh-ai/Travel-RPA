@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Silver",
+    "days": 6,
+    "start_date": "2025-08-21",
+    "end_date": "2025-08-26",
+    "sports_coverage": true
+  },
+  "travellers": [
+    {
+      "name": "ALINE FERSANE",
+      "passport": "UV3456789",
+      "age": 40,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "18.00",
+    "subtotal": "27.00",
+    "group_discount": "0.00",
+    "net": "27.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "27.00",
+    "currency": "USD"
+  }
+}

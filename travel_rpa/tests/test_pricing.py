@@ -21,7 +21,7 @@ def test_silver_worldwide_7days_single(engine):
         travellers=[{'age_at_travel': 30}],
         sports_flag=False
     )
-    assert result['total'] == Decimal('30.00')
+    assert result['total'] == Decimal('22.00')
     assert result['group_discount'] == Decimal('0')
     assert result['tax'] == Decimal('0')
 
@@ -34,8 +34,8 @@ def test_senior_age_load(engine):
         travellers=[{'age_at_travel': 80}],
         sports_flag=False
     )
-    assert result['traveller_breakdown'][0]['age_load'] == Decimal('22.50')
-    assert result['total'] == Decimal('52.50')
+    assert result['traveller_breakdown'][0]['age_load'] == Decimal('16.50')
+    assert result['total'] == Decimal('38.50')
 
 
 def test_sports_load(engine):
@@ -46,8 +46,8 @@ def test_sports_load(engine):
         travellers=[{'age_at_travel': 30}],
         sports_flag=True
     )
-    assert result['traveller_breakdown'][0]['sports_load'] == Decimal('15.00')
-    assert result['total'] == Decimal('45.00')
+    assert result['traveller_breakdown'][0]['sports_load'] == Decimal('11.00')
+    assert result['total'] == Decimal('33.00')
 
 
 def test_group_discount_11_travellers(engine):
@@ -59,9 +59,9 @@ def test_group_discount_11_travellers(engine):
         travellers=travellers,
         sports_flag=False
     )
-    assert result['subtotal'] == Decimal('450.00')
-    assert result['group_discount'] == Decimal('22.50')
-    assert result['total'] == Decimal('427.50')
+    assert result['subtotal'] == Decimal('330.00')
+    assert result['group_discount'] == Decimal('16.50')
+    assert result['total'] == Decimal('313.50')
 
 
 def test_day_band_boundaries(engine):
@@ -78,5 +78,5 @@ def test_ww_excl_us_ca_scope(engine):
         travellers=[{'age_at_travel': 30}],
         sports_flag=False
     )
-    assert result['total'] == Decimal('25.00')
+    assert result['total'] == Decimal('18.00')
     assert result['currency'] == 'USD'

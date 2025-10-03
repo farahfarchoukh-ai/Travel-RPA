@@ -1,0 +1,12 @@
+{
+  "message_id": "test-msg-023",
+  "thread_id": "test-thread-023",
+  "from": "customer@example.com",
+  "subject": "NES: Outbound Travel policy offer - Mr Iskandar Kfouri and wife Hana Abou Haidar",
+  "body": "Good morning,\n\nPlease issue outbound travel insurance policy. Mr Kfouri and his wife are travelling from Lebanon to USA from 2024-12-07 to 2025-01-04 (29 days). \nGOLD PLUS plan, Worldwide excluding country of residence.\n\nTraveller details:\n• Mr Iskandar Kfouri\n• Mrs Hana Abou Haidar\n\nPassports attached.\n\nRegards",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<LBNKFOURI<<ISKANDAR<<<<<<<<<<<<<<<<<<<<<<<<<\nOP0123456<LBN4401015M2412015<<<<<<<<<<<<<<06",
+    "P<LBNABOU<<HAIDAR<<HANA<<<<<<<<<<<<<<<<<<<<\nQR1234567<LBN8001015F2412015<<<<<<<<<<<<<<06"
+  ]
+}

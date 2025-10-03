@@ -1,0 +1,12 @@
+{
+  "message_id": "test-msg-021",
+  "thread_id": "test-thread-021",
+  "from": "customer@example.com",
+  "subject": "Travel policies",
+  "body": "Kindly issue travel policies for Perlyn Daao & Ronalyn Cristobal as per the attached passports.\nAddress: Baba bldg, Jnah, Beirut \n+961 70 712 742\nSilver outbound\nFrom 2025-07-25 to 2025-08-24 (31 days)\nWorld except USA & Canada\n\nThanks",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<PHLDAAO<<PERLYN<<<<<<<<<<<<<<<<<<<<<<<<<<<\nGH6789012<PHL9801015F2507015<<<<<<<<<<<<<<06",
+    "P<PHLCRISTOBAL<<RONALYN<<<<<<<<<<<<<<<<<<<<<\nIJ7890123<PHL9901015F2507015<<<<<<<<<<<<<<06"
+  ]
+}

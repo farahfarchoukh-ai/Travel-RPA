@@ -1,0 +1,291 @@
+{
+  "name": "WF-04 Notify-Success (with LLM Email Composition)",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "notify/success",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-688, -64],
+      "id": "2d87597b-4981-4bd2-92b8-98ffb6a20606",
+      "name": "Webhook",
+      "webhookId": "c3e3ae81-d909-4301-a8f1-baad1b637e57"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fc29f95a-e860-4063-87bf-85f4538bf2e7",
+              "name": "to",
+              "value": "={{ $json.to }}",
+              "type": "string"
+            },
+            {
+              "id": "1fd3a1b2-764f-4d39-abd8-c935ef0e9d03",
+              "name": "subject",
+              "value": "=Re: {{$json.original_subject}} — Policy issued (Case {{$json.case_id}})",
+              "type": "string"
+            },
+            {
+              "id": "24ece846-d70e-4787-8d80-00b6c7a6fe8e",
+              "name": "file_id",
+              "value": "1vc9_D7m-TX3R83KcxyOtTmwM5FdTpIl",
+              "type": "string"
+            },
+            {
+              "id": "10ccb1bf-e4e5-49fb-a822-c790f706818f",
+              "name": "thread_id",
+              "value": "={{ $json.thread_id }}",
+              "type": "string"
+            },
+            {
+              "id": "case-id-pass",
+              "name": "case_id",
+              "value": "={{ $json.case_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-528, -64],
+      "id": "ed3aa6d9-89ac-4233-9389-0579bb833845",
+      "name": "SE-Assemble"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://DJANGO_API_URL_HERE/api/v1/simulate-issuance",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Webhook-Secret",
+              "value": "={{ $env.N8N_WEBHOOK_SECRET }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "case_id",
+              "value": "={{ $json.case_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-368, -64],
+      "id": "django-simulate-issuance",
+      "name": "Django API - Simulate Issuance"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a professional insurance operations assistant. Generate a friendly, professional email to notify a client that their travel insurance policy has been successfully issued. Include all policy details provided and maintain a warm, helpful tone. Format the email in HTML."
+        },
+        "messages": [
+          {
+            "role": "user",
+            "content": "=Generate a professional email notification for a successfully issued travel policy with these details:\n\nPolicy Information:\n- Direction: {{$json.extracted.direction}}\n- Coverage Scope: {{$json.extracted.scope}}\n- Plan: {{$json.extracted.plan}}\n- Travel Period: {{$json.extracted.start_date}} to {{$json.extracted.end_date}} ({{$json.extracted.days}} days)\n- Number of Travelers: {{$json.travellers.length}}\n- Traveler Names: {{$json.travellers.map(t => t.name).join(', ')}}\n- Sports Coverage: {{$json.extracted.sports_coverage ? 'Yes' : 'No'}}\n\nPricing:\n- Base Premium: {{$json.pricing.currency}} {{$json.pricing.base_per_traveller}}\n- Subtotal: {{$json.pricing.currency}} {{$json.pricing.subtotal}}\n- Total Premium: {{$json.pricing.currency}} {{$json.pricing.total}}\n\nIssuance Details:\n- Screenshot: {{$json.screenshot_url}}\n- Case ID: {{$json.case_id}}\n\nThe policy PDF document is attached to this email. Please write a complete HTML email body."
+          }
+        ]
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [-208, -64],
+      "id": "llm-email-composer",
+      "name": "LLM Email Composer",
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUR_OPENAI_CREDENTIALS_ID",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "html-from-llm",
+              "name": "html",
+              "value": "={{$json.output}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-48, -64],
+      "id": "extract-html",
+      "name": "Extract HTML"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{$('SE-Assemble').item.json.file_id}}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [112, -64],
+      "id": "921990ab-bcbb-4a9f-83e6-720e67b27ccb",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "eQwnq7JeLkPDRVuN",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$('SE-Assemble').item.json.to}}",
+        "subject": "={{$('SE-Assemble').item.json.subject}}",
+        "message": "={{$('Extract HTML').item.json.html}}",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {}
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [272, -64],
+      "id": "c706a3a2-73bc-455a-b772-6251f9ef3878",
+      "name": "Send a message1",
+      "webhookId": "eed4d144-ab73-408c-85d1-3a893661b6ee",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "xWAKo7A29aRIlkzX",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{ \"ok\": true, \"notified\": \"success\", \"to\": \"{{$('SE-Assemble').item.json.to}}\" }\n",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [432, -64],
+      "id": "e15d8482-6284-4b82-8868-931a00b91bcb",
+      "name": "RW-200"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "SE-Assemble",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SE-Assemble": {
+      "main": [
+        [
+          {
+            "node": "Django API - Simulate Issuance",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Django API - Simulate Issuance": {
+      "main": [
+        [
+          {
+            "node": "LLM Email Composer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Email Composer": {
+      "main": [
+        [
+          {
+            "node": "Extract HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract HTML": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "node": "RW-200",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "64PfdJADVwognSYu",
+    "timeSavedPerExecution": 20
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "tags": []
+}

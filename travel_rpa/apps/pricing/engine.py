@@ -45,7 +45,7 @@ class PricingEngine:
         
         band = self._get_day_band(days)
         if not band:
-            raise ValueError(f"Invalid days: {days}. Must be 1-92.")
+            raise ValueError(f"Invalid days: {days}. Must be 1-365.")
         
         key = (scope, plan, band['min'], band['max'])
         tariff = self.tariffs.get(key)
@@ -126,6 +126,10 @@ class PricingEngine:
             return {'min': 32, 'max': 45}
         elif 46 <= days <= 92:
             return {'min': 46, 'max': 92}
+        elif 93 <= days <= 180:
+            return {'min': 93, 'max': 180}
+        elif 181 <= days <= 365:
+            return {'min': 181, 'max': 365}
         return None
     
     def _get_group_discount_rate(self, num_travellers: int) -> float:

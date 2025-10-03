@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-020",
+  "thread_id": "test-thread-020",
+  "from": "customer@example.com",
+  "subject": "Extra Long Outbound – Gold Plus (Sample)",
+  "body": "Dear Insurance Desk,\nFor testing, please quote outbound worldwide cover for one traveller, Gold Plus, from 2026-01-01 to 2026-10-01 (274 days, 9 months).\nTraveller info is in the attached file.\n\nRegards",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<CHEZHU<<YIMING<<<<<<<<<<<<<<<<<<<<<<<<<<<\nEF5678901<CHE9701015M2601015<<<<<<<<<<<<<<06"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-011",
+  "thread_id": "test-thread-011",
+  "from": "customer@example.com",
+  "subject": "Outbound Trip – Worldwide excl. US/Canada",
+  "body": "Hello,\nRequest 2-week outbound cover excluding US/Canada for one traveller, Gold plan, from 2025-11-05 to 2025-11-19 (15 days).\nSee attachment for personal info.\n\nThank you",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<FRAGARCIA<<MARIA<<<<<<<<<<<<<<<<<<<<<<<<<<\nIJ4567890<FRA8901015F2511015<<<<<<<<<<<<<<06"
+  ]
+}

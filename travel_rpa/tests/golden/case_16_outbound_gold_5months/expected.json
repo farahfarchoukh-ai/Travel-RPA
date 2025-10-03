@@ -3,28 +3,28 @@
   "extracted": {
     "direction": "OUTBOUND",
     "scope": "WORLDWIDE",
-    "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "plan": "Gold",
+    "days": 154,
+    "start_date": "2026-03-20",
+    "end_date": "2026-08-20",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
-      "age": 40,
+      "name": "HIROSHI TANAKA",
+      "passport": "ST9012345",
+      "age": 31,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "165.00",
+    "subtotal": "165.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "165.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "165.00",
     "currency": "USD"
   }
 }

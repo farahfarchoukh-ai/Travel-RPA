@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-024",
+  "thread_id": "test-thread-024",
+  "from": "customer@example.com",
+  "subject": "Issuance of a travel policy",
+  "body": "Dear Mrs Mouawad\nKindly issue a travel policy for Miss Ghanem covering worldwide \nFrom 7 to 17 october 2025\nThank you and Best Regards\n",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<LBNGHANEM<<MARIE<<<<<<<<<<<<<<<<<<<<<<<<<<\nST2345678<LBN9501015F2510015<<<<<<<<<<<<<<06"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "message_id": "test-msg-022",
+  "thread_id": "test-thread-022",
+  "from": "customer@example.com",
+  "subject": "Mr Dory Njaim and Mrs Cynthia Bardawil (RN Chemicals) : Request Travel Insurance",
+  "body": "Ref to above subject, please to issue 2 Travel insurance policies for Mr Dory Njaim and his wife Mrs Cynthia Bardawil, traveling outbound from Lebanon to Europe from 2025-06-05 to 2025-07-05 (31 days), under GOLD plan, Worldwide excluding USA & CANADA.\n\nPremium for each is for 35$.\n\nAbove you find passports copies for your easy reference and guidance.\n\nRegards",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<LBNNJAIM<<DORY<<<<<<<<<<<<<<<<<<<<<<<<<<<\nKL8901234<LBN7001015M2506015<<<<<<<<<<<<<<06",
+    "P<LBNBARDAWIL<<CYNTHIA<<<<<<<<<<<<<<<<<<<<<<<\nMN9012345<LBN7501015F2506015<<<<<<<<<<<<<<06"
+  ]
+}

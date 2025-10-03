@@ -1,0 +1,36 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Gold Plus",
+    "days": 29,
+    "start_date": "2024-12-07",
+    "end_date": "2025-01-04",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "ISKANDAR KFOURI",
+      "passport": "OP0123456",
+      "age": 81,
+      "is_senior": true
+    },
+    {
+      "name": "HANA ABOU HAIDAR",
+      "passport": "QR1234567",
+      "age": 45,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "65.00",
+    "subtotal": "130.00",
+    "group_discount": "0.00",
+    "net": "130.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "130.00",
+    "currency": "USD"
+  }
+}

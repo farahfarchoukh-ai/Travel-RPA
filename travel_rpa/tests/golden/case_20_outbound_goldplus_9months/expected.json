@@ -3,28 +3,28 @@
   "extracted": {
     "direction": "OUTBOUND",
     "scope": "WORLDWIDE",
-    "plan": "Silver",
-    "days": 10,
-    "start_date": "2025-11-01",
-    "end_date": "2025-11-10",
+    "plan": "Gold Plus",
+    "days": 274,
+    "start_date": "2026-01-01",
+    "end_date": "2026-10-01",
     "sports_coverage": false
   },
   "travellers": [
     {
-      "name": "JOHN DOE",
-      "passport": "AB1234567",
-      "age": 40,
+      "name": "YIMING ZHU",
+      "passport": "EF5678901",
+      "age": 28,
       "is_senior": false
     }
   ],
   "pricing": {
-    "base_per_traveller": "38.00",
-    "subtotal": "38.00",
+    "base_per_traveller": "340.00",
+    "subtotal": "340.00",
     "group_discount": "0.00",
-    "net": "38.00",
+    "net": "340.00",
     "tax": "0.00",
     "fees": "0.00",
-    "total": "38.00",
+    "total": "340.00",
     "currency": "USD"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "route": "missing",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WORLDWIDE",
+    "plan": null,
+    "days": 11,
+    "start_date": "2025-10-07",
+    "end_date": "2025-10-17",
+    "sports_coverage": false
+  },
+  "missing": ["plan"]
+}

@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-017",
+  "thread_id": "test-thread-017",
+  "from": "customer@example.com",
+  "subject": "Extended Outbound Trip – Gold (8 months)",
+  "body": "Dear Support,\nPlease arrange Gold outbound cover (Worldwide excluding US/Canada) for one traveller, from 2026-04-01 to 2026-12-01 (245 days, 8 months).\nTraveller's passport and name attached.\n\nThanks",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<KORKIM<<MINJUN<<<<<<<<<<<<<<<<<<<<<<<<<<<\nUV0123456<KOR9501015M2604015<<<<<<<<<<<<<<06"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "message_id": "test-msg-019",
+  "thread_id": "test-thread-019",
+  "from": "customer@example.com",
+  "subject": "Outbound Worldwide – USD 100,000 (Single Traveller)",
+  "body": "Hi,\nNeed outbound worldwide cover for one traveller with USD 100,000 limit, from 2025-12-01 to 2026-03-01 (91 days, 3 months).\nAttachment includes personal details.\n\nThanks",
+  "received_at": "2025-10-03T12:00:00Z",
+  "ocr_results": [
+    "P<NLDVANDENBERG<<LARS<<<<<<<<<<<<<<<<<<<<<<<\nCD4567890<NLD9601015M2512015<<<<<<<<<<<<<<06"
+  ]
+}
