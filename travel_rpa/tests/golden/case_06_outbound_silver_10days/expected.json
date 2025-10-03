@@ -1,0 +1,30 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WORLDWIDE",
+    "plan": "Silver",
+    "days": 10,
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-10",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "JOHN DOE",
+      "passport": "AB1234567",
+      "age": 40,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "50.00",
+    "subtotal": "50.00",
+    "group_discount": "0.00",
+    "net": "50.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "50.00",
+    "currency": "USD"
+  }
+}

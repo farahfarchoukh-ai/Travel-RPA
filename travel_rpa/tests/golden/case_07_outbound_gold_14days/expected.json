@@ -1,0 +1,36 @@
+{
+  "route": "success",
+  "extracted": {
+    "direction": "OUTBOUND",
+    "scope": "WW_EXCL_US_CA",
+    "plan": "Gold",
+    "days": 14,
+    "start_date": "2025-12-01",
+    "end_date": "2025-12-14",
+    "sports_coverage": false
+  },
+  "travellers": [
+    {
+      "name": "JANE SMITH",
+      "passport": "CD9876543",
+      "age": 45,
+      "is_senior": false
+    },
+    {
+      "name": "TOM SMITH",
+      "passport": "EF5432109",
+      "age": 43,
+      "is_senior": false
+    }
+  ],
+  "pricing": {
+    "base_per_traveller": "55.00",
+    "subtotal": "110.00",
+    "group_discount": "0.00",
+    "net": "110.00",
+    "tax": "0.00",
+    "fees": "0.00",
+    "total": "110.00",
+    "currency": "USD"
+  }
+}

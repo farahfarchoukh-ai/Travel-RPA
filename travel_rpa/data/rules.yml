@@ -1,0 +1,37 @@
+max_days: 92
+
+age_load:
+  senior_age_min: 76
+  senior_age_max: 86
+  senior_multiplier: 0.75
+
+sports_load:
+  multiplier: 0.50
+
+group_discount_tiers:
+  - min_travellers: 11
+    max_travellers: 20
+    discount_rate: 0.05
+  - min_travellers: 21
+    max_travellers: 30
+    discount_rate: 0.15
+  - min_travellers: 31
+    max_travellers: 40
+    discount_rate: 0.25
+  - min_travellers: 41
+    max_travellers: null
+    discount_rate: 0.35
+
+default_tax_rate: 0.0
+
+fees:
+  issue_fee_usd: 0.0
+  payment_fee_usd: 0.0
+
+deductibles:
+  senior_deductible_usd: 250.0
+  sports_deductible_usd: 250.0
+
+rounding_rule: 2
+
+senior_covid_exclusion: true
